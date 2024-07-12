@@ -1,6 +1,8 @@
+"""Modulo responsavel por guardar a declaração da janela da aplicação"""
+
 import tkinter as tk
 
-from main_window_frame import MainWindowFrame
+from app.view.main_window_frame import MainWindowFrame
 
 class Window(tk.Tk):
     """Classe da janela da aplicação, aqui se define caracteristicas da janela e
@@ -12,9 +14,5 @@ class Window(tk.Tk):
         self.minsize(350,500)
         #self.maxsize() Definir tamanho maximo depois
 
-        self.main_frame = MainWindowFrame()
+        self.main_frame = MainWindowFrame(self)
         self.main_frame.place(relx=0, rely=0, relwidth=1, relheight=1)
-
-
-app = Window()
-app.mainloop()
