@@ -1,5 +1,6 @@
 """Responsavel por guardar a classe que realiza o processamento dos calculos"""
 
+
 class CalculationProcessor:
     """Classe que recebe a string de entrada e devolve o resultado"""
 
@@ -10,7 +11,7 @@ class CalculationProcessor:
         """Responsavel por calcular a espressão de entrada e devolver uma resposta"""
 
         for digit in expression:
-            if not digit in "0123456789,/*-+":
+            if not digit in "0123456789./*-+":
                 return "Security Error"
         try:
             result = eval(expression)

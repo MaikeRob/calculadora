@@ -23,6 +23,8 @@ class MainWindowFrame(tk.Frame):
         self.entry_frame.config(background="black")
         self.entry_frame.place(relx=0, rely=0, relwidth=1, relheight=0.332)
 
+        parent.bind("<KeyPress>", self.controller.on_key_pressed)
+
     def update_entry_frame_expression(self, expression):
         """Atualiza o frame da entrada"""
         self.entry_frame.update_entry(expression)
