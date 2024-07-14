@@ -1,14 +1,13 @@
 """Modulo responsavel por guardar a declaração da classe que lida com os eventos da aplicação"""
 
-from app.models.calculation_processor import expression_processor
-
 
 class CalculatorHandler:
     """Lida com os eventos da aplicação"""
 
-    def __init__(self, view):
+    def __init__(self, view, calculator):
 
         self.view = view
+        self.calculator = calculator
         self.current_real_expression = ""
         self.current_view_expression = ""
 
@@ -20,7 +19,9 @@ class CalculatorHandler:
 
         match button_text:
             case "=":
-                result = expression_processor(self.current_real_expression)
+                result = self.calculator.evaluate_expression(
+                    self.current_real_expression
+                )
                 self.current_view_expression = f"{result}"
                 self.view.update_main_frame_entry(self.current_view_expression)
             case digit if digit in "0123456789":
