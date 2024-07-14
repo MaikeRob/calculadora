@@ -296,6 +296,7 @@ class ButtonFrame(tk.Frame):
             self.clear_entry_button,
             self.backspace_button,
             self.percent_button,
+            self.comma_button,
         ]
 
         for self.button in self.buttons:
@@ -327,4 +328,4 @@ class EntryFrame(tk.Frame):
     def update_entry(self, expression):
         """Atualiza o frame da entrada"""
         self.entry_expression.set(expression)
-        #self.entry_label.config(text=self.entry_expression)
+        # self.entry_label.config(text=self.entry_expression)

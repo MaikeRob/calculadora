@@ -1,5 +1,7 @@
 """Modulo responsavel por guardar a declaração da classe que lida com os eventos da aplicação"""
 
+from app.models.calculation_processor import expression_processor
+
 
 class CalculatorHandler:
     """Lida com os eventos da aplicação"""
@@ -18,7 +20,9 @@ class CalculatorHandler:
 
         match button_text:
             case "=":
-                pass
+                result = expression_processor(self.current_real_expression)
+                self.current_view_expression = f"{result}"
+                self.view.update_main_frame_entry(self.current_view_expression)
             case digit if digit in "0123456789":
                 self.current_real_expression += digit
                 self.current_view_expression += digit
@@ -34,6 +38,22 @@ class CalculatorHandler:
             case "÷":
                 self.current_real_expression += "/"
                 self.current_view_expression += "÷"
+                self.view.update_main_frame_entry(self.current_view_expression)
+            case "⌫":
+                self.current_real_expression = self.current_real_expression[0:-1]
+                self.current_view_expression = self.current_view_expression[0:-1]
+                self.view.update_main_frame_entry(self.current_view_expression)
+            case "CE":
+                self.current_real_expression = ""
+                self.current_view_expression = ""
+                self.view.update_main_frame_entry(self.current_view_expression)
+            case ",":
+                self.current_real_expression += "."
+                self.current_view_expression += ","
+                self.view.update_main_frame_entry(self.current_view_expression)
+            case "%":  # melhorar esse calculo, por enquanto deixo assim simples
+                self.current_real_expression += "/100"
+                self.current_view_expression += "%"
                 self.view.update_main_frame_entry(self.current_view_expression)
             case _:
                 pass
