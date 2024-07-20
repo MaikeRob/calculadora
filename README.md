@@ -15,3 +15,7 @@ A calculadora permite realizar operações básicas de matemática como adição
 1. **Requisitos:**  Certifique-se de ter Python instalado em seu sistema.
 2. **Clonar o Repositório:**  Clone este repositório para sua máquina local.
 3. **Executar o Script:**  Navegue até o diretório do projeto e execute o script `run.py`.
+
+
+###### Adicionar:
+-> Funções mais avançadas(seno, cosseno, raiz e etc)
