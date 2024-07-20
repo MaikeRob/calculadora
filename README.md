@@ -19,3 +19,4 @@ A calculadora permite realizar operações básicas de matemática como adição
 
 ###### Adicionar:
 -> Funções mais avançadas(seno, cosseno, raiz e etc)
+-> Historicos de operações 
