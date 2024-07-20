@@ -88,7 +88,7 @@ class CalculatorHandler:
         }
 
         match event.keysym:
-            case "equal":
+            case "equal" | "Return":
                 result = self.calculator.evaluate_expression(
                     self.current_real_expression
                 )
@@ -122,10 +122,13 @@ class CalculatorHandler:
                 self.current_real_expression = self.current_real_expression[0:-1]
                 self.current_view_expression = self.current_view_expression[0:-1]
                 self.view.update_main_frame_entry(self.current_view_expression)
-            case "comma":
+            case "comma" | "period" | "KP_Separator":
                 self.current_real_expression += "."
                 self.current_view_expression += ","
                 self.view.update_main_frame_entry(self.current_view_expression)
+            case "Delete":
+                self.current_real_expression = ""
+                self.current_view_expression = ""
+                self.view.update_main_frame_entry(self.current_view_expression)
             case _:
                 pass
-            
